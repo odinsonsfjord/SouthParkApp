@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">South Park Application</string>
+    <string name="character_image_content_description">Character image</string>
+</resources>

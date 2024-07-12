@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_margin="@dimen/text_margin"
+    >
+    <ImageView
+        android:id="@+id/character_avatar"
+        android:layout_width="74dp"
+        android:layout_height="74dp"
+        android:layout_gravity="center_vertical"
+        android:contentDescription="@string/character_image_content_description"
+        />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/recycler_text_margin"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/character_family"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/FamilyNameTextStyle"
+            />
+
+        <TextView
+            android:id="@+id/character_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/CharacterNameTextStyle"
+            />
+
+        <TextView
+            android:id="@+id/character_sex"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/CharacterSexTextStyle"
+            />
+
+    </LinearLayout>
+
+
+
+</LinearLayout>
