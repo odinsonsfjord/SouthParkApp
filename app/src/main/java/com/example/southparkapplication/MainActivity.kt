@@ -34,14 +34,14 @@ class MainActivity : AppCompatActivity() {
 
         characterList = arrayListOf()
 
-        characterList.add(CharactersData("https://random.responsiveimages.io/",
+        characterList.add(CharactersData("https://static.wikia.nocookie.net/spsot/images/e/e2/Gerald_Broflovski_facebook_profile.png/",
             "Broflovsky", "Gerald", "Male"))
-        characterList.add(CharactersData("https://random.responsiveimages.io/",
+        characterList.add(CharactersData("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVRp7h-9P1VwPYk8gqpfK3AR8CAHVDqCqbRw&s",
             "Broflovsky", "Sheila", "Female"))
-        characterList.add(CharactersData("https://random.responsiveimages.io/",
+        characterList.add(CharactersData("https://static.displate.com/270x380/displate/2023-12-07/57b46d7dfe39f822d4767852af1de490_eab249c39a235766de1a637fe9863e21.jpg",
             "Broflovsky", "Kyle", "Male"))
-        characterList.add(CharactersData("https://random.responsiveimages.io/",
-            "Broflovsky", "Iyk", "Male"))
+        characterList.add(CharactersData("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxVup2yXKwQvjHxItWohdUPN7bSbIMnarIEA&s",
+            "Broflovsky", "Ike", "Male"))
 
         binding.recyclerView.adapter = CharacterViewAdapter(characterList,this)
 
