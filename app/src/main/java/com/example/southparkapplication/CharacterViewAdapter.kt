@@ -15,8 +15,9 @@ import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
+import com.example.southparkapplication.dataModels.Data
 
-class CharacterViewAdapter(private val context: Context)
+class CharacterViewAdapter(private val context: Context, private val characterList: List<Data>)
     : RecyclerView.Adapter<CharacterViewAdapter.CharacterViewHolder>() {
 
     class CharacterViewHolder (itemView: View): RecyclerView.ViewHolder(itemView){
@@ -26,17 +27,11 @@ class CharacterViewAdapter(private val context: Context)
         val characterSex : TextView = itemView.findViewById(R.id.character_sex)
     }
 
-    private var characterList: List<CharactersData>? = null
-
-    fun setCharacterList(characterList : List<CharactersData>?){
-        this.characterList = characterList
-    }
-
     override fun onBindViewHolder(holder: CharacterViewHolder, position: Int) {
-        val character = characterList?.get(position)
-        holder.characterFamily.text = character?.religion
-        holder.characterName.text = character?.name
-        holder.characterSex.text = character?.sex
+        val character = characterList[position]
+        holder.characterFamily.text = character.religion
+        holder.characterName.text = character.name
+        holder.characterSex.text = character.sex
 
         Glide.with(context)
             .load("https://static.wikia.nocookie.net/spsot/images/e/e2/Gerald_Broflovski_facebook_profile.png/")
@@ -74,8 +69,7 @@ class CharacterViewAdapter(private val context: Context)
     }
 
     override fun getItemCount(): Int {
-        if(characterList == null) return 0
-        else return characterList?.size!!
+       return characterList.size
     }
 }
 
