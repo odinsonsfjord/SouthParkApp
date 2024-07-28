@@ -42,16 +42,21 @@ class MainActivity : AppCompatActivity() {
             val response = try {
             RetroInstance.api.getCharacterList()
             } catch (e: IOException) {
-                Toast.makeText(applicationContext,"app error ${e.message}",Toast.LENGTH_SHORT).show()
+                runOnUiThread {
+                    Toast.makeText(applicationContext, "app error ${e.message}", Toast.LENGTH_LONG).show()
+                }
                 return@launch
             }
             catch (e: HttpException){
-                Toast.makeText(applicationContext,"http error ${e.message}",Toast.LENGTH_SHORT).show()
-                return@launch
+                runOnUiThread {
+                    Toast.makeText(applicationContext, "http error ${e.message}", Toast.LENGTH_LONG).show()
+                }
+                    return@launch
             }
             if(response.isSuccessful && response.body() != null) {
                 withContext(Dispatchers.Main){
-                    charactersList = response.body()!!
+                    val data = response.body()!!
+                    charactersList = data.data
                     binding.recyclerView.apply {
                         recyclerViewAdapter = CharacterViewAdapter(this@MainActivity,charactersList)
                         adapter = recyclerViewAdapter
@@ -69,7 +74,7 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        window.navigationBarColor = getResources().getColor(R.color.squid_ink)
+        window.navigationBarColor = this.getColor(R.color.squid_ink)
         window.decorView.getWindowInsetsController()?.setSystemBarsAppearance(0, APPEARANCE_LIGHT_STATUS_BARS)
 
     }
